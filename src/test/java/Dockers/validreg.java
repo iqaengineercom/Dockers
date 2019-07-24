@@ -22,8 +22,7 @@ public class validreg {
         driver.manage().window().maximize();
         driver.get("https://www.dockers.com/US/en_US/login");
         WebDriverWait wait = new WebDriverWait(driver, 50);
-        WebElement pop;
-        pop = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"emailModal\"]/div/div")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"emailModal\"]/div/div")));
         WebElement close = driver.findElement(By.xpath("//*[@id=\"emailModal\"]/div/div/div[1]/button"));
         close.click();
 
@@ -31,16 +30,15 @@ public class validreg {
         WebElement password = driver.findElement(By.name("pwd"));
         WebElement buttonreq = driver.findElement(By.xpath("//button[@class='btn btn-block btn-tertiary btn-join']"));
 
-        email.sendKeys("tester4@tester.com");
+        email.sendKeys("tester8@tester.com");
         password.sendKeys("adminMm1");
         buttonreq.click();
         WebElement alertsucc = driver.findElement(By.xpath("//div[@class='alert alert-info']"));
         if (alertsucc.isDisplayed()) {
-
-            System.out.println("Test" + alertsucc.getText());
+            System.out.println("Test" + " " + alertsucc.getText());
             driver.quit();
         } else {
-            System.out.println("Нет сообщегния" + driver.getTitle());
+            System.out.println("Нет сообщения" + " " + driver.getTitle());
             driver.quit();
         }
     }
